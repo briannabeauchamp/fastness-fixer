@@ -1,9 +1,3 @@
-/*
- * Modulifier || Code released under the UNLICENSE
- * Code under other copyrights & licenses listed below.
- * https://modulifier.web-dev.tools/#responsive;images;list-group;embed;positioning
- */
-
 @-moz-viewport { width: device-width; scale: 1; }
 @-ms-viewport { width: device-width; scale: 1; }
 @-o-viewport { width: device-width; scale: 1; }
@@ -26,14 +20,21 @@ body {
   margin: 0;
 }
 
-img {
-  border: 0;
+footer,
+header,
+main,
+nav {
+  display: block;
 }
 
-.img-flex,
-.img-flex img {
-  display: block;
-  width: 100%;
+[tabindex],
+a {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+img {
+  border: 0;
 }
 
 svg {
@@ -44,20 +45,9 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-svg.img-flex {
-  width: 100%;
-  height: 100%;
-}
-
-.image-replacement, .ir {
-  overflow: hidden;
-  direction: ltr;
-  text-align: left;
-  text-indent: 100%;
-  white-space: nowrap;
-}
-
-.list-group, .list-group-inline, .list-group--inline {
+.list-group,
+.list-group--inline,
+.list-group-inline {
   padding-left: 0;
   list-style-type: none;
 }
@@ -66,33 +56,33 @@ svg.img-flex {
   margin-left: 0;
 }
 
-.list-group-inline::before,
-.list-group-inline::after,
+.list-group--inline::after,
 .list-group--inline::before,
-.list-group--inline::after {
+.list-group-inline::after,
+.list-group-inline::before {
   content: "";
   display: table;
 }
 
-.list-group-inline::after,
-.list-group--inline::after {
+.list-group--inline::after,
+.list-group-inline::after {
   clear: both;
 }
 
-.list-group-inline > li,
-.list-group--inline > li {
+.list-group--inline > li,
+.list-group-inline > li {
   display: inline-block;
 }
 
-.list-group-inline > dt,
-.list-group--inline > dt {
+.list-group--inline > dt,
+.list-group-inline > dt {
   clear: left;
   float: left;
   width: 11em;
 }
 
-.list-group-inline > dd,
-.list-group--inline > dd {
+.list-group--inline > dd,
+.list-group-inline > dd {
   float: left;
   min-width: 12em;
 }
@@ -105,11 +95,58 @@ svg.img-flex {
   width: 100%;
 }
 
-.embed-3by2, .embed--3by2 {
-  padding-top: 66.6%; /* Classic 35 mm film & most digital photos, landscape */
+.embed--1by1,
+.embed-1by1 {
+  padding-top: 100%;
 }
 
-.embed-item, .embed__item {
+.embed--4by3,
+.embed-4by3 {
+  padding-top: 75%;
+}
+
+.embed--3by2,
+.embed-3by2 {
+  padding-top: 66.6%;
+}
+
+.embed--2by3,
+.embed-2by3 {
+  padding-top: 150%;
+}
+
+.embed--16by9,
+.embed-16by9 {
+  padding-top: 56.25%;
+}
+
+.embed--185by100,
+.embed-185by100 {
+  padding-top: 54.05%;
+}
+
+.embed--24by10,
+.embed-24by10 {
+  padding-top: 41.667%;
+}
+
+.embed--3by1,
+.embed-3by1 {
+  padding-top: 33.3333%;
+}
+
+.embed--4by1,
+.embed-4by1 {
+  padding-top: 25%;
+}
+
+.embed--5by1,
+.embed-5by1 {
+  padding-top: 20%;
+}
+
+.embed-item,
+.embed__item {
   min-height: 100%;
   left: 0;
   position: absolute;
@@ -117,41 +154,103 @@ svg.img-flex {
   width: 100%;
 }
 
-.flex-row {
+[hidden] {
+  display: none;
+  visibility: hidden;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-content {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-direction: column wrap;
+  -ms-flex-direction: column wrap;
+  flex-flow: column wrap;
 }
 
-.no-auto-margins,
-.not-centered {
-  /* stylelint-disable declaration-no-important */
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  /* stylelint-enable */
+.inline {
+  display: inline;
 }
 
 .block {
   display: block;
 }
 
-.inline-block, .ib {
+.ib,
+.inline-block {
   display: inline-block;
+}
+
+.valign-middle {
+  vertical-align: middle;
 }
 
 .relative {
   position: relative;
 }
 
-[class*="pin-"],
-.absolute {
+.absolute,
+[class*="pin-"] {
   position: absolute;
 }
 
-.pin-top-left,
-.pin-left-top,
-.pin-tl,
-.pin-lt {
+.pin-tl {
   top: 0;
   left: 0;
+}
+
+.pin-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.h-1-4 {
+  height: 25%;
+}
+
+.h-1-2 {
+  height: 50%;
+}
+
+.h-1 {
+  height: 100%;
+}
+
+ol {
+  counter-reset: ol-simple-numbers;
+  list-style-type: none;
+}
+
+ol > li::before {
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  counter-increment: ol-simple-numbers;
+  content: counter(ol-simple-numbers);
+  text-align: right;
+}
+
+.list-group--inline > li::before,
+.list-group-inline > li::before,
+.list-group > li::before {
+  content: none;
 }
